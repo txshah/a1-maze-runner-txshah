@@ -13,7 +13,7 @@ import org.apache.commons.cli.ParseException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+//version with all needed libraries for log 
 public class Main {
 
     private static final Logger logger = LogManager.getLogger();
@@ -30,10 +30,10 @@ public class Main {
         try {
             
             CommandLine cmd = parser.parse(options, args);
-            String mazeFilePath = cmd.getOptionValue("i");
+            String InputFilePath = cmd.getOptionValue("i");
 
-            logger.info("**** Reading the maze from file " + args[0]);
-            BufferedReader reader = new BufferedReader(new FileReader(args[0]));
+            logger.info("**** Reading the maze from file " + InputFilePath);
+            BufferedReader reader = new BufferedReader(new FileReader(InputFilePath));
             String line;
             while ((line = reader.readLine()) != null) {
                 for (int idx = 0; idx < line.length(); idx++) {
