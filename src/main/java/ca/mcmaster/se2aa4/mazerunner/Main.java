@@ -32,7 +32,7 @@ public class Main {
             
             CommandLine cmd = parser.parse(options, args);
             String MAZE_FILE = cmd.getOptionValue("i");
-            String PATH_SEQUENCE = cmd.getOptionValue("p");
+            String PATH_SEQUENCE = cmd.getOptionValue("p");//will add command for this after 
 
             logger.info("**** Reading the maze from file " + MAZE_FILE);
             BufferedReader reader = new BufferedReader(new FileReader(MAZE_FILE));
