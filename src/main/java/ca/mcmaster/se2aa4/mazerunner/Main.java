@@ -23,17 +23,18 @@ public class Main {
         
         //command line options 
         Options options = new Options();
-        options.addOption("i", true, "Input maze file");
+        options.addOption("i", true, "MAZE_FILE");
 
         CommandLineParser parser = new DefaultParser();//parser 
 
         try {
             
             CommandLine cmd = parser.parse(options, args);
-            String InputFilePath = cmd.getOptionValue("i");
+            String MAZE_FILE = cmd.getOptionValue("i");
 
-            logger.info("**** Reading the maze from file " + InputFilePath);
-            BufferedReader reader = new BufferedReader(new FileReader(InputFilePath));
+            logger.info("**** Reading the maze from file " + MAZE_FILE);
+            BufferedReader reader = new BufferedReader(new FileReader(MAZE_FILE));
+           
             String line;
             while ((line = reader.readLine()) != null) {
                 for (int idx = 0; idx < line.length(); idx++) {
