@@ -3,6 +3,14 @@ package ca.mcmaster.se2aa4.mazerunner;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.Options;
+
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.ParseException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,19 +20,30 @@ public class Main {
 
     public static void main(String[] args) {
         logger.info("** Starting Maze Runner");
+        
+        //command line options 
+        Options options = new Options();
+        options.addOption("i", true, "Input maze file");
+
+        CommandLineParser parser = new DefaultParser();//parser 
+
         try {
+            
+            CommandLine cmd = parser.parse(options, args);
+            String mazeFilePath = cmd.getOptionValue("i");
+
             logger.info("**** Reading the maze from file " + args[0]);
             BufferedReader reader = new BufferedReader(new FileReader(args[0]));
             String line;
             while ((line = reader.readLine()) != null) {
                 for (int idx = 0; idx < line.length(); idx++) {
                     if (line.charAt(idx) == '#') {
-                        logger.trace("WALL ");
+                        logger.info("WALL ");
                     } else if (line.charAt(idx) == ' ') {
-                        logger.trace("PASS ");
+                        logger.info("PASS ");
                     }
                 }
-                logger.trace(System.lineSeparator());
+                logger.info(System.lineSeparator());
             }
         } catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");
