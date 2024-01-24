@@ -17,9 +17,9 @@ import org.apache.logging.log4j.Logger;
 
 public class Maze{
     
-    private int rows = 0; 
-    private int cols = 0; 
-    private int[][] array ;
+    public int rows = 0; 
+    public int cols = 0; 
+    public int[][] array ;
 
     //print maze 
     private void print_maze(String maze) throws IOException{
