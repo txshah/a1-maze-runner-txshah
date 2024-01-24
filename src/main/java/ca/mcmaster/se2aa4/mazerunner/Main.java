@@ -13,6 +13,7 @@ import org.apache.commons.cli.ParseException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 //version with all needed libraries for log 
 public class Main {
 
@@ -26,10 +27,12 @@ public class Main {
             Configuration config = configure(args);
             //System.out.println(config);
             logger.info("**** Computing path");
+            Maze theMaze= new Maze(config.MAZE_FILE());
 
         }catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");
             logger.error("PATH NOT COMPUTED");
+            logger.error("Please input a valid tag (-i) to run program. Remeber to also use tag -p if you would like to test your own path");
         }
 
         logger.info("** End of MazeRunner");
@@ -78,3 +81,5 @@ code for printing maze
                 System.out.print(System.lineSeparator());
             }
      */
+
+    //tests - return start and end for difference mazes, print out array with 0/1
