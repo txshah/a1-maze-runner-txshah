@@ -71,6 +71,12 @@ public class Maze{
                 }
             }
         }
+        for (int i =0; i<rows; i++){
+            for (int j=0; j<cols; j++){
+                int n = array[i][j];
+                System.out.print(n+ " ");
+            }System.out.println(" ");
+        }
         reader.close();
         return array; 
     }
@@ -79,6 +85,7 @@ public class Maze{
         //check first coloum for entry point 
         for (int i=0; i<rows; i++){
             if (array[i][0]==0){
+                System.out.print("start "+i);
                 return i; 
             }
         }return -1;
@@ -88,7 +95,9 @@ public class Maze{
         //check last coloum for end point 
         for (int i=0; i<rows; i++){
             if (array[i][cols-1]==0){
+                System.out.print("end "+i);
                 return i; 
+                
             }
         }return -1;
     }
