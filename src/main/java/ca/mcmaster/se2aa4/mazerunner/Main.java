@@ -27,7 +27,10 @@ public class Main {
             Configuration config = configure(args);
             //System.out.println(config);
             logger.info("**** Computing path");
-            Maze theMaze= new Maze(config.MAZE_FILE());
+            //Maze theMaze= new Maze(config.MAZE_FILE());
+            path_find thePath= new path_find(config.MAZE_FILE());
+            //System.out.print("flag3");
+
 
         }catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");
@@ -49,7 +52,6 @@ public class Main {
 
         String MAZE_FILE = cmd.getOptionValue("i");
         logger.info("**** Reading the maze from file " + MAZE_FILE);
-
 
         String PATH_SEQUENCE = cmd.getOptionValue("p");
 

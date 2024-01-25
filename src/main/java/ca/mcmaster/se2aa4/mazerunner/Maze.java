@@ -1,25 +1,21 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.Options;
-
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.ParseException;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Maze{
     
     public int rows = 0; 
     public int cols = 0; 
     public int[][] array ;
+
+    public int[][] start;
+    public int[][] end;
+
+    public int coord_s;
+    public int coord_f;
 
     //print maze 
     private void print_maze(String maze) throws IOException{
@@ -54,8 +50,8 @@ public class Maze{
     }
 
 
-    public int[][] maze(String maze) throws IOException{
-        dimensions(maze);
+    public int[][] maze_convert(String maze) throws IOException{
+        dimensions(maze);//make sure rows and cols are found 
 
         BufferedReader reader = new BufferedReader(new FileReader(maze));
 
@@ -71,41 +67,44 @@ public class Maze{
                 }
             }
         }
-        for (int i =0; i<rows; i++){
+        /*for (int i =0; i<rows; i++){
             for (int j=0; j<cols; j++){
                 int n = array[i][j];
                 System.out.print(n+ " ");
             }System.out.println(" ");
-        }
+        }*/
         reader.close();
         return array; 
     }
 
-    public int start_point(){
+    public void start_point(){
         //check first coloum for entry point 
+        start = new int[1][1]; 
         for (int i=0; i<rows; i++){
             if (array[i][0]==0){
-                System.out.print("start "+i);
-                return i; 
+                //System.out.print("start "+i);
+                start[0][0] = array[i][0]; 
+                coord_s = i; 
             }
-        }return -1;
+        }
     }
 
-    public int end_point(){
+    public void end_point(){
         //check last coloum for end point 
         for (int i=0; i<rows; i++){
+            end = new int[1][1];
             if (array[i][cols-1]==0){
-                System.out.print("end "+i);
-                return i; 
-                
+                //System.out.print("end "+i); 
+                end[0][0] = array[i][cols-1]; 
+                coord_f = i; 
             }
-        }return -1;
+        }
     }
 
     public Maze(String MAZE_FILE) throws IOException{
         String maze = MAZE_FILE; 
         print_maze(maze);
-        maze(maze);
+        maze_convert(maze);
         start_point();
         end_point();
     }
