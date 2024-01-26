@@ -1,65 +1,72 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.IOException;
+import java.util.Arrays;
+ 
 
 
 public class path_find{
-//confirm that tag is -i 
-//import call Maze class to create array 
-//brin in start point 
-    public path_find(String MAZE_FILE){
-        //System.out.print("flag1");
-        //int start = 0;
-        //int end = 0;
-        //array path - need to store  
+//need to confirm that tag is -i 
+    
+    private int[][] path;//use to access variables from other class 
+    private int[][] end_point;
+    private String output = " "; 
 
+    private int[][] current_point;
+    private int col; 
+    private int row; 
+    
+    private String prev = " ";
+   
+
+    public path_find(String MAZE_FILE) throws IOException{   
         String maze = MAZE_FILE; 
-        Maze current;
-        try{
-            current = new Maze(maze); 
-            int[][] path = current.array;//use to access variables from other class 
-            int[][] end_point = current.end;
-            String output = " "; //make this a public string? and then have it access by left, right and front methods 
+        Maze current = new Maze(maze); 
 
-            int[][] current_point = current.start;
+        current_point = current.start;
+        end_point = current.end;
+        path = current.array;//use to access variables from other class 
 
-            int starter = current.coord_s;
-            int x =1; 
-            //System.out.print("flag2");
-//problem - current point does not hold coordinates
-            while((current_point[0][0]) != (end_point[0][0])){//can we use current point and index it instead of using starter
-                if((path[starter][x])== 0){//starting at col since we know that at first col there is only one entry point 
-                    if((path[starter+1][x])==0){
-                        //goes right ("south direction") - need to add RF)
-                        current_point[0][0] = path[starter+1][x];//current point = updated 
-                        starter = starter+1;//starter updated 
-                        //output += "RF";//string output updated 
-                        System.out.print("RF");
-                    }else if((path[starter][x+1])==0){
-                        //goes forward ("east direction") - need to add F)
-                        current_point[0][0] = path[starter][x+1];//current point = updated 
-                        x= x+1;//x updated 
-                        //output += "F";//string output updated 
-                        System.out.print("F");
-                    }else if((path[starter-1][x])==0){
-                        //goes left ("north direction") - need to add LF)
-                        current_point[0][0] = path[starter-1][x];//current point = updated 
-                        starter = starter-1;//starter updated 
-                        //output += "LF";//string output updated 
-                        System.out.print("LF");
-                        //next move is to go straight or left again - can't go back down 
-                        //need to add recurssion to keep calling same function whenever they go left 
-                    }else{
-                        System.out.print("issue");
-                    }
-                }
+        row = current_point[0][0];
+        col = current_point[0][1];
+
+        while(!(Arrays.equals(current_point[0],end_point[0]))){
+            if(((path[row+1][col])==0) && (!(prev.equals("left")))){
+                right();
+            }else if((path[row][col+1])==0){
+                forward();
+            }else if((path[row-1][col])==0){
+                left();
             }
-            System.out.println(output);
+        }System.out.println("output:" + output);
 
-        }catch(IOException e){
-            System.out.println("/!\\ An error has occured /!\\");
-            System.out.println("PATH NOT COMPUTED");
-        }
+    }
+    public void right(){
+        //goes right ("south direction") - need to add RF)
+        current_point[0][0] = row+1;//current point = updated 
+        row = row + 1;//row updated 
+        output += "RF";//string output updated 
+        prev = "right";
+        System.out.println("RF");
+
+    }
+    public void forward(){
+        //goes forward ("east direction") - need to add F)
+        current_point[0][1] = col +1;//current point = updated 
+        col = col+1;//x updated 
+        output += "F";//string output updated 
+        System.out.println("F");
+        prev = "forward";
+    }
+
+    public void left(){
+        //goes left ("north direction") - need to add LF)
+        current_point[0][0] = row-1;//current point = updated 
+        row = row-1;//row updated 
+        output += "LF";//string output updated 
+        System.out.println("LF");
+        prev = "left"; //next move is to go straight or left again - can't go back down(aka right) 
+        //System.out.println(x + row + current_point[0][0]+ current_point[0][1]);
     }
 } 
 

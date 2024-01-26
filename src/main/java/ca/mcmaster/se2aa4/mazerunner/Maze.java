@@ -14,8 +14,8 @@ public class Maze{
     public int[][] start;
     public int[][] end;
 
-    public int coord_s;
-    public int coord_f;
+    //public int coord_s;
+    //public int coord_f;
 
     //print maze 
     private void print_maze(String maze) throws IOException{
@@ -67,36 +67,41 @@ public class Maze{
                 }
             }
         }
-        /*for (int i =0; i<rows; i++){
+        for (int i =0; i<rows; i++){
             for (int j=0; j<cols; j++){
                 int n = array[i][j];
                 System.out.print(n+ " ");
             }System.out.println(" ");
-        }*/
+        }
         reader.close();
         return array; 
     }
 
     public void start_point(){
-        //check first coloum for entry point 
-        start = new int[1][1]; 
+        //check first coloum for entry point (rowsxcols)
+        start = new int[1][2]; 
         for (int i=0; i<rows; i++){
             if (array[i][0]==0){
-                //System.out.print("start "+i);
-                start[0][0] = array[i][0]; 
-                coord_s = i; 
+                System.out.print("start "+i);
+                start[0][0] = i; 
+                System.out.print("flag1"); 
+                start[0][1] = 0; 
+                System.out.print("flag2"); 
+                //coord_s = i; 
             }
         }
     }
 
     public void end_point(){
         //check last coloum for end point 
+        System.out.print("flag"); 
+        end = new int[1][2];
         for (int i=0; i<rows; i++){
-            end = new int[1][1];
-            if (array[i][cols-1]==0){
-                //System.out.print("end "+i); 
-                end[0][0] = array[i][cols-1]; 
-                coord_f = i; 
+            if (array[i][(cols-1)]==0){
+                System.out.print("end "+i); 
+                end[0][0] = i; 
+                end[0][1]= (cols-1); 
+                //coord_f = i; 
             }
         }
     }
@@ -105,6 +110,8 @@ public class Maze{
         String maze = MAZE_FILE; 
         print_maze(maze);
         maze_convert(maze);
+        System.out.println(cols);
+        System.out.println(rows);
         start_point();
         end_point();
     }

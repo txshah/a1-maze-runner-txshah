@@ -29,8 +29,6 @@ public class Main {
             logger.info("**** Computing path");
             //Maze theMaze= new Maze(config.MAZE_FILE());
             path_find thePath= new path_find(config.MAZE_FILE());
-            //System.out.print("flag3");
-
 
         }catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");
@@ -60,7 +58,7 @@ public class Main {
 
     private record Configuration(String MAZE_FILE, String PATH_SEQUENCE) {//use to ensure tags are being used 
         Configuration{
-            if (MAZE_FILE ==null){
+            if (MAZE_FILE == null){
                 throw new IllegalArgumentException("Please input a valid tag (-i) to run program. Remeber to also use tag -p if you would like to test your own path");
             }
         }
