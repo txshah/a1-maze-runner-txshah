@@ -39,71 +39,42 @@ public class path_check{
         for (int i=0; i< converted.length(); i++){
             char choice = (converted.charAt(i)); 
 
-            if(direction.equals("east")){
-                if (((path[current_point[0] + 1][current_point[1]]) == 0) && choice =='R') {
-                    //current_point[0] += 1;
-                    direction = "south";                     
-                }else if (((path[current_point[0]][current_point[1] + 1]) == 0) && choice == 'F') {
+            if(choice == 'F'){
+                if (direction.equals("east") && path[current_point[0]][current_point[1] + 1] == 0) {
                     current_point[1] += 1;
-                    direction = "east"; 
-
-                }else if (((path[current_point[0] - 1][current_point[1]]) == 0) && choice =='L') {
-                    //current_point[0] -= 1;
-                    direction = "north"; 
-                }else{
-                    valid = false; 
+                } else if (direction.equals("west") && path[current_point[0]][current_point[1] - 1] == 0) {
+                    current_point[1] -= 1;
+                } else if (direction.equals("north") && path[current_point[0] - 1][current_point[1]] == 0) {
+                    current_point[0] -= 1;
+                } else if (direction.equals("south") && path[current_point[0] + 1][current_point[1]] == 0) {
+                    current_point[0] += 1;
+                } else {
+                    valid = false;
                     break;
                 }
-            }else if (direction.equals("west")){
-                if(((path[(current_point[0])-1][(current_point[1])])== 0)&& choice =='R'){
-                    //current_point[0] -= 1;//current_point point = updated    
+            }else if(choice =='L'){
+                if (direction.equals("east")) {
                     direction = "north";
-                }else if(((path[(current_point[0])][((current_point[1])-1)])== 0) && choice == 'F'){
-                    current_point[1] -= 1;//current_point point = updated 
-                    direction = "west"; 
-                }else if(((path[(current_point[0]+1)][current_point[1]]) == 0) && choice =='L'){
-                    //current_point[0] += 1;//current_point point = updated 
-                    direction = "south"; 
-
-                }else{
-                    valid = false;
-                    break;   
-                }
-            }else if (direction.equals("north")){
-                if(((path[(current_point[0])][(current_point[1]+1)])== 0)&& choice =='R'){
-                    //current_point[1] += 1;//current point = updated 
-                    direction = "east";
-                    
-                }else if(((path[(current_point[0]-1)][(current_point[1])]) == 0) && choice == 'F'){
-                    current_point[0] -= 1;//current point = updated 
-                    direction = "north";
-                    
-                }else if(((path[(current_point[0])][current_point[1]-1])== 0) && choice =='L'){
-                    //current_point[1] -= 1;//current point = updated 
-                    direction = "west"; 
-                    
-                }else{
-                    valid = false;
-                    break;    
-                }
-            }else if (direction.equals("south")){
-                if(((path[(current_point[0])][(current_point[1]-1)])== 0)&& choice =='R'){
-                    //current_point[1] -= 1;//current point = updated 
+                } else if (direction.equals("west")) {
+                    direction = "south";
+                } else if (direction.equals("north")) {
                     direction = "west";
-                }else if(((path[(current_point[0]+1)][(current_point[1])])== 0) && choice == 'F'){ 
-                    current_point[0] += 1;//current point = updated 
-                    direction = "south"; 
-                    
-                }else if(((path[(current_point[0])][current_point[1]+1])== 0) && choice =='L'){
-                    //current_point[1] += 1;//current point = updated
-                    direction = "east"; 
-                }else{
-                    valid = false;
-                    break;    
+                } else if (direction.equals("south")) {
+                    direction = "east";
+                }
+            }else if(choice=='R'){
+                if (direction.equals("east")) {
+                    direction = "south";
+                } else if (direction.equals("west")) {
+                    direction = "north";
+                } else if (direction.equals("north")) {
+                    direction = "east";
+                } else if (direction.equals("south")) {
+                    direction = "west";
                 }
             }else{
                 valid = false;
-                break;  
+                break; 
             }
         }
 
