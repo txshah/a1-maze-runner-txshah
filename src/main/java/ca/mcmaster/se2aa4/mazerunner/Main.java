@@ -26,10 +26,17 @@ public class Main {
         try{
             Configuration config = configure(args);
             //System.out.println(config);
-            logger.info("**** Computing path");
-            //Maze theMaze= new Maze(config.MAZE_FILE());
-            //path_find thePath= new path_find(config.MAZE_FILE());
-            player thePlayer= new player(config.MAZE_FILE());
+
+            if (config.PATH_SEQUENCE() == null){
+                logger.info("**** Computing path");
+                //Maze theMaze= new Maze(config.MAZE_FILE());
+                //path_find thePath= new path_find(config.MAZE_FILE());
+                player thePlayer= new player(config.MAZE_FILE());
+            }else{
+                path_check thePath= new path_check();
+                boolean check = thePath.check(config.MAZE_FILE(), config.PATH_SEQUENCE());
+            }
+        
 
         }catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");

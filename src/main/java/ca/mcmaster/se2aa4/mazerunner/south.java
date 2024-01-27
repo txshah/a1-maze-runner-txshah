@@ -74,7 +74,6 @@ public class south{
         
     }
 
-
     public String output(){
         return output; 
     }
