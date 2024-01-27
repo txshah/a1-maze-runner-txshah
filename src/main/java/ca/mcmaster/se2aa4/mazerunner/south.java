@@ -44,7 +44,7 @@ public class south{
         //goes right ("south direction") - need to add RF)
         int temp = current[1]; 
         current[1] = temp -1;//current point = updated 
-        output += "R";//string output updated 
+        output += "RF";//string output updated 
         
         direction = "west";
     }
@@ -63,7 +63,7 @@ public class south{
         int temp = current[1]; 
         current[1] = temp + 1;//current point = updated 
         
-        output += "L";//string output updated 
+        output += "LF";//string output updated 
         direction = "east"; 
     }
 

@@ -48,7 +48,7 @@ public class north{
         int temp = current[1]; 
         current[1] = temp + 1;//current point = updated 
         
-        output += "R";//string output updated 
+        output += "RF";//string output updated 
         direction = "east";
     }
     public void forward(){
@@ -65,7 +65,7 @@ public class north{
         int temp = current[1]; 
         current[1] = temp - 1;//current point = updated 
         
-        output += "L";//string output updated 
+        output += "LF";//string output updated 
         direction = "west"; 
     }
 
