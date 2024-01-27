@@ -14,10 +14,6 @@ public class Maze{
     public int[] start;
     public int[] end;
 
-    //public int coord_s;
-    //public int coord_f;
-
-    //print maze 
     private void print_maze(String maze) throws IOException{
        BufferedReader reader = new BufferedReader(new FileReader(maze));
         String line; 
@@ -67,12 +63,13 @@ public class Maze{
                 }
             }
         }
-        for (int i =0; i<rows; i++){
+        //tester code to print array of 0/1s
+        /*for (int i =0; i<rows; i++){
             for (int j=0; j<cols; j++){
                 int n = array[i][j];
                 System.out.print(n+ " ");
             }System.out.println(" ");
-        }
+        }*/
         reader.close();
         return array; 
     }
@@ -82,7 +79,6 @@ public class Maze{
         start = new int[2]; 
         for (int i=0; i<rows; i++){
             if (array[i][0]==0){
-                System.out.println("start point: "+i);
                 start[0] = i; //rows 
                 start[1] = 0; //cols 
                 //coord_s = i; 
@@ -97,7 +93,6 @@ public class Maze{
             if (array[i][(cols-1)]==0){
                 end[0] = i; //rows 
                 end[1]= (cols-1); //cols 
-                System.out.println("end point:"+ i + (cols-1));
                 //coord_f = i; 
             }
         }
@@ -105,30 +100,10 @@ public class Maze{
 
     public Maze(String MAZE_FILE) throws IOException{
         String maze = MAZE_FILE; 
-        print_maze(maze);
+        //print_maze(maze);
         maze_convert(maze);
         start_point();
         end_point();
     }
 }
 
-//use buffer array to read input
-//have loops storing 2d arrray - simialr to how u did in oop course last sem 
-//change wall to 1 and pass to 0
-//print to array to test 
- 
-        /*Scanner my_scanner = new Scanner(System.in);
-        System.out.print("enter dimension 1 (rows): ");
-        int rows = my_scanner.nextInt();
-        System.out.print("enter dimension 2 (columns): ");
-        int cols = my_scanner.nextInt();
-
-        double array[][]= new double [rows][cols];
-
-        System.out.println("enter your array (space b/w digits in same row and enter b/w rows)");
-        for (int i =0; i<rows; i++){
-            for (int j=0; j<cols; j++){
-                double n = my_scanner.nextDouble();
-                array[i][j]=n;
-            }
-        }*/

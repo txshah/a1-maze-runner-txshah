@@ -16,7 +16,7 @@ public class north{
    
 
     public north(int[][] path, int[]current_point, int[] end_point) throws IOException{   
-        System.out.println("in north");
+
         this.current = current_point; 
 
         while(((current_point[0]!=end_point[0])|| (current_point[1]!=end_point[1])) && (direction.equals("north"))){

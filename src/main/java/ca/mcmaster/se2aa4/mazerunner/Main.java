@@ -1,9 +1,5 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
 
@@ -25,12 +21,9 @@ public class Main {
         
         try{
             Configuration config = configure(args);
-            //System.out.println(config);
 
             if (config.PATH_SEQUENCE() == null){
                 logger.info("**** Computing path");
-                //Maze theMaze= new Maze(config.MAZE_FILE());
-                //path_find thePath= new path_find(config.MAZE_FILE());
                 player thePlayer= new player(config.MAZE_FILE());
             }else{
                 path_check thePath= new path_check();
@@ -41,8 +34,8 @@ public class Main {
         }catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");
             logger.error("PATH NOT COMPUTED");
-            logger.error("Please input a valid tag (-i) to run program. Remember to also use tag -p if you would like to test your own path");
-            e.printStackTrace();
+            //logger.error("Please input a valid tag (-i) to run program. Remember to also use tag -p if you would like to test your own path");
+            //e.printStackTrace();
         }
 
         logger.info("** End of MazeRunner");
@@ -75,20 +68,3 @@ public class Main {
 
 }
 
-    /*
-code for printing maze 
-            BufferedReader reader = new BufferedReader(new FileReader(MAZE_FILE));
-            String line; 
-            while ((line = reader.readLine()) != null) {
-                for (int idx = 0; idx < line.length(); idx++) {
-                    if (line.charAt(idx) == '#') {
-                        System.out.print("WALL ");
-                    } else if (line.charAt(idx) == ' ') {
-                        System.out.print("PASS ");
-                    }
-                }
-                System.out.print(System.lineSeparator());
-            }
-     */
-
-    //tests - return start and end for difference mazes, print out array with 0/1

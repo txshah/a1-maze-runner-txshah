@@ -1,20 +1,11 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.IOException;
-import java.util.Arrays;
- 
+
 
 
 public class east{
-//need to confirm that tag is -i 
-    
-    /*private int[][] array;//use to access variables from other class 
-    private int[] end_point;
-    private String output = " "; 
 
-    private int[] current_point;
-    private int col; 
-    private int row;*/
     String direction = "east"; 
     String output =""; 
     int[] current; 
@@ -22,11 +13,8 @@ public class east{
    
 
     public east(int[][] path, int[]current_point, int[] end_point) throws IOException{   
-        System.out.println("in east");
         this.current = current_point; 
-
-        while(((current_point[0]!=end_point[0])|| (current_point[1]!=end_point[1])) && (direction.equals("east"))){
-            
+        while(((current_point[0]!=end_point[0])|| (current_point[1]!=end_point[1])) && (direction.equals("east"))){      
             if(((path[(current[0]+1)][(current[1])])== 0)){
                 right();
                 
@@ -37,7 +25,6 @@ public class east{
                 left();
             }else{
                 backwards();//180 turn
-                
             }
         }
     }
@@ -70,7 +57,6 @@ public class east{
     }
 
     public void backwards(){
-        
         output += "LL";//string output updated 
         direction = "west"; 
         

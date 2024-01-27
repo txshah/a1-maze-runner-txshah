@@ -6,15 +6,7 @@ import java.util.Arrays;
 
 
 public class south{
-//need to confirm that tag is -i 
-    
-    /*private int[][] array;//use to access variables from other class 
-    private int[] end_point;
-    private String output = " "; 
 
-    private int[] current_point;
-    private int col; 
-    private int row;*/
     String direction = "south"; 
     String output =""; 
     int[] current; 
@@ -22,7 +14,7 @@ public class south{
    
 
     public south(int[][] path, int[]current_point, int[] end_point) throws IOException{   
-        System.out.println("in south");
+
         this.current = current_point; 
 
         while(((current_point[0]!=end_point[0])|| (current_point[1]!=end_point[1])) && (direction.equals("south"))){

@@ -1,20 +1,15 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.IOException;
-import java.util.Arrays;
- 
 
 
 public class west{
-//need to confirm that tag is -i 
     String direction = "west"; 
     String output =""; 
     int[] current; 
 
-   
-
     public west(int[][] path, int[]current_point, int[] end_point) throws IOException{   
-        System.out.println("in west");
+
         this.current = current_point; 
 
         while(((current_point[0]!=end_point[0])|| (current_point[1]!=end_point[1])) && (direction.equals("west"))){
@@ -81,11 +76,3 @@ public class west{
 
 } 
 
-    
-    /*private int[][] array;//use to access variables from other class 
-    private int[] end_point;
-    private String output = " "; 
-
-    private int[] current_point;
-    private int col; 
-    private int row;*/

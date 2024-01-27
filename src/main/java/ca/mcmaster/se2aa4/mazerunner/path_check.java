@@ -4,7 +4,6 @@ package ca.mcmaster.se2aa4.mazerunner;
 import java.io.IOException;
 
 public class path_check{
-    //confirm that the tag is -p 
 
     private int[][] path;//use to access variables from other class 
     private int[] end_point;
@@ -13,16 +12,6 @@ public class path_check{
     public String direction; 
 
     public boolean check(String MAZE_FILE, String input) throws IOException{
-        //bring in array of maze 
-        //check if insturctions work 
-            //go through string
-            //based on string commands move through array
-            //as long as each place they go is empty string can contine
-            //quit if they hit a wall
-            //at the end of string make sure current_point and end is the same
-            //if yes correct path 
-            //if false not correct path 
-
         boolean valid = true; 
         String maze = MAZE_FILE; 
         Maze current = new Maze(maze);
@@ -36,7 +25,7 @@ public class path_check{
         converter convert = new converter(input,"can"); 
         String converted = convert.can(input); 
 
-        for (int i=0; i< converted.length(); i++){
+        for (int i=0; i < converted.length(); i++){
             char choice = (converted.charAt(i)); 
 
             if(choice == 'F'){
@@ -77,7 +66,6 @@ public class path_check{
                 break; 
             }
         }
-
             if ((current_point[0] != end_point[0]) || (current_point[1] != end_point[1])){
                 valid = false; 
             } else {
@@ -90,6 +78,5 @@ public class path_check{
         
 }
 
-        //for every character in string 
-        //if statment based on direciton case 
-        //at the end check if final is equal to current_point 
+
+    

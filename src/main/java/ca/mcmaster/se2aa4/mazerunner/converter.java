@@ -1,8 +1,6 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
-import java.io.IOException;
-import java.util.Arrays;
- 
+
 
 
 public class converter{
@@ -24,7 +22,6 @@ public class converter{
     }
 
     public String fac(String input){
-        //FFFRFFL
         String output = ""; 
         int count = 1; 
         char current = input.charAt(0);
@@ -54,10 +51,7 @@ public class converter{
         
     }
 
-        //check if digit or char
-        //char just add
-        //digit(1) then input that char(2) x amount of times 
-        //then start from the value after the char (3 - i++?) and repeat process 
+
     public String can(String input){
         String output = "";
         for(int i=0; i<input.length(); i++){
