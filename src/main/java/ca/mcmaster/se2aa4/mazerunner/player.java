@@ -73,7 +73,10 @@ public class player{
             }else{
                 System.out.println("no direction - error");
             }
-        }System.out.println(output);
+        }
+        System.out.println(output);
+
+        converter convert = new converter(output,"fac"); 
 
     }
 } 

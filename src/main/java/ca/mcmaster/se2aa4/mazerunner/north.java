@@ -8,13 +8,7 @@ import java.util.Arrays;
 public class north{
 //need to confirm that tag is -i 
     
-    /*private int[][] array;//use to access variables from other class 
-    private int[] end_point;
-    private String output = " "; 
 
-    private int[] current_point;
-    private int col; 
-    private int row;*/
     String direction = "north"; 
     String output =""; 
     int[] current; 
