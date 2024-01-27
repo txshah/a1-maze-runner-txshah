@@ -28,12 +28,14 @@ public class Main {
             //System.out.println(config);
             logger.info("**** Computing path");
             //Maze theMaze= new Maze(config.MAZE_FILE());
-            path_find thePath= new path_find(config.MAZE_FILE());
+            //path_find thePath= new path_find(config.MAZE_FILE());
+            player thePlayer= new player(config.MAZE_FILE());
 
         }catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");
             logger.error("PATH NOT COMPUTED");
-            logger.error("Please input a valid tag (-i) to run program. Remeber to also use tag -p if you would like to test your own path");
+            logger.error("Please input a valid tag (-i) to run program. Remember to also use tag -p if you would like to test your own path");
+            e.printStackTrace();
         }
 
         logger.info("** End of MazeRunner");

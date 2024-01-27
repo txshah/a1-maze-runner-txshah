@@ -11,8 +11,8 @@ public class Maze{
     public int cols = 0; 
     public int[][] array ;
 
-    public int[][] start;
-    public int[][] end;
+    public int[] start;
+    public int[] end;
 
     //public int coord_s;
     //public int coord_f;
@@ -79,14 +79,12 @@ public class Maze{
 
     public void start_point(){
         //check first coloum for entry point (rowsxcols)
-        start = new int[1][2]; 
+        start = new int[2]; 
         for (int i=0; i<rows; i++){
             if (array[i][0]==0){
-                System.out.print("start "+i);
-                start[0][0] = i; 
-                System.out.print("flag1"); 
-                start[0][1] = 0; 
-                System.out.print("flag2"); 
+                System.out.println("start point: "+i);
+                start[0] = i; //rows 
+                start[1] = 0; //cols 
                 //coord_s = i; 
             }
         }
@@ -94,13 +92,12 @@ public class Maze{
 
     public void end_point(){
         //check last coloum for end point 
-        System.out.print("flag"); 
-        end = new int[1][2];
+        end = new int[2];
         for (int i=0; i<rows; i++){
             if (array[i][(cols-1)]==0){
-                System.out.print("end "+i); 
-                end[0][0] = i; 
-                end[0][1]= (cols-1); 
+                end[0] = i; //rows 
+                end[1]= (cols-1); //cols 
+                System.out.println("end point:"+ i + (cols-1));
                 //coord_f = i; 
             }
         }
@@ -110,8 +107,6 @@ public class Maze{
         String maze = MAZE_FILE; 
         print_maze(maze);
         maze_convert(maze);
-        System.out.println(cols);
-        System.out.println(rows);
         start_point();
         end_point();
     }
