@@ -51,18 +51,27 @@ public class converter{
         }
         System.out.println(output);
         return output;
+        
     }
-
-
-    public String can(String input){
-        String output = "";
 
         //check if digit or char
         //char just add
         //digit(1) then input that char(2) x amount of times 
         //then start from the value after the char (3 - i++?) and repeat process 
+    public String can(String input){
+        String output = "";
+        for(int i=0; i<input.length(); i++){
+            char current = input.charAt(i);
 
-
+            if(Character.isDigit(current)){
+                for(int j=0; j<(Integer.parseInt(String.valueOf(current)));j++){
+                    output+= (input.charAt(i+1));
+                }i++; 
+            }else{
+                output += current; 
+            }
+        }
+        System.out.println(output);
         return output;
     }
 
