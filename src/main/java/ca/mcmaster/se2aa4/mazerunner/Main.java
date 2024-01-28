@@ -29,14 +29,12 @@ public class Main {
                 solver.setup(config.MAZE_FILE());
                 solver.solve();
                 solver.display();
-
                 
             }else{
                 path_check thePath= new path_check();
                 thePath.check(config.MAZE_FILE(), config.PATH_SEQUENCE());
             }
         
-
         }catch(Exception e) {
             logger.error("/!\\ An error has occured /!\\");
             logger.error("PATH NOT COMPUTED");
@@ -67,7 +65,7 @@ public class Main {
     private record Configuration(String MAZE_FILE, String PATH_SEQUENCE) {//use to ensure tags are being used 
         Configuration{
             if (MAZE_FILE == null){
-                throw new IllegalArgumentException("Please input a valid tag (-i) to run program. Remeber to also use tag -p if you would like to test your own path");
+                throw new IllegalArgumentException("Please input a maze file for the program to read");
             }
         }
     }
