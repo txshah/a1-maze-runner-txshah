@@ -4,7 +4,7 @@ import java.io.IOException;
  
 
 
-public class right_hand{
+public class right_hand implements solver{
 
     private int[][] path;//use to access variables from other class 
     private int[] end_point;
