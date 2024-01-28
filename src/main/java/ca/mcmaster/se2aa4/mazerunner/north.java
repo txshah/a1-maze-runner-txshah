@@ -5,10 +5,8 @@ import java.util.Arrays;
  
 
 
-public class north implements compass{
-//need to confirm that tag is -i 
-    
-
+public class north implements compass{//implement class 
+    //standard global variables 
     String direction = "north"; 
     String output =""; 
     int[] current; 
@@ -18,9 +16,9 @@ public class north implements compass{
     public void move(int[][] path, int[]current_point, int[] end_point) throws IOException{   
 
         this.current = current_point; 
-
-        while(((current_point[0]!=end_point[0])|| (current_point[1]!=end_point[1])) && (direction.equals("north"))){
-
+//while east is still the direction and current point is not the end point run the loop 
+        while(((current[0]!=end_point[0])|| (current[1]!=end_point[1])) && (direction.equals("north"))){
+//run checks in each direction to make sure it is possible to move there  
             if(((path[(current[0])][(current[1]+1)])== 0)){
                 right();
                 
@@ -38,26 +36,23 @@ public class north implements compass{
     }
 
     public void right(){
-        //goes right ("south direction") - need to add R)
-        int temp = current[1]; 
-        current[1] = temp + 1;//current point = updated 
+        //goes right ("east direction") - need to add R)
+        current[1]+= 1;//current point = updated 
         
         output += "RF";//string output updated 
         direction = "east";
     }
     public void forward(){
         //goes forward ("north direction") - need to add F)
-        int temp = current[0]; 
-        current[0] = temp - 1;//current point = updated 
+        current[0] -= 1;//current point = updated 
         output += "F";//string output updated 
         
         direction = "north"; 
     }
 
     public void left(){
-        //goes left ("north direction") - need to add L)
-        int temp = current[1]; 
-        current[1] = temp - 1;//current point = updated 
+        //goes left ("west direction") - need to add L)
+        current[1] -= 1;//current point = updated 
         
         output += "LF";//string output updated 
         direction = "west"; 
@@ -69,7 +64,7 @@ public class north implements compass{
         
     }
 
-
+//return needed variables
     public String output(){
         return output; 
     }

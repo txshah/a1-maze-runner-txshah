@@ -13,7 +13,7 @@ public class west implements compass{//implement class
 
         this.current = current_point; 
 
-        //while east is still the direction and current point is not the end point run the loop 
+        //while west is still the direction and current point is not the end point run the loop 
         while(((current[0]!=end_point[0])|| (current[1]!=end_point[1])) && (direction.equals("west"))){
   //run checks in each direction to make sure it is possible to move there  
             if(((path[(current[0])-1][(current[1])])== 0)){
@@ -33,16 +33,14 @@ public class west implements compass{//implement class
 
     public void right(){
         //goes right ("north direction") - need to add RF)
-        int temp = current[0]; 
-        current[0] = temp - 1;//current point = updated 
+        current[0] -= 1;//current point = updated 
     
         output += "RF";//string output updated 
         direction = "north";
     }
     public void forward(){
         //goes forward ("west direction") - need to add F) 
-        int temp = current[1]; 
-        current[1] = temp - 1;//current point = updated 
+        current[1] -= 1;//current point = updated 
         
         output += "F";//string output updated 
         direction = "west"; 
@@ -50,8 +48,7 @@ public class west implements compass{//implement class
 
     public void left(){
         //goes left ("south direction") - need to add LF)
-        int temp = current[0]; 
-        current[0] = temp + 1;//current point = updated 
+        current[0] += 1;//current point = updated 
         
         output += "LF";//string output updated 
         direction = "south"; 
