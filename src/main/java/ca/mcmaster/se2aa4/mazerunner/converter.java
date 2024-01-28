@@ -9,7 +9,7 @@ public class converter{
 //A factorized path squashes together similar instructions (i.e., FFF = 3F, LL = 2L).
 //Spaces are ignored in the instruction sequence (only for readability: FFLFF = FF L FF) 
 
-    public converter(String input, String Type){  
+    /*public converter(String input, String Type){  
         //type is the desired output - so type fac will return a factorize output 
         if (Type.equals("fac")){
             fac(input);
@@ -19,7 +19,7 @@ public class converter{
             System.out.println("no conversion possible");
         }
 
-    }
+    }*/
 
     public String fac(String input){
         String output = ""; 
@@ -46,7 +46,7 @@ public class converter{
         } else {
             output += current;
         }
-        System.out.println(output);
+        //System.out.println(output);
         return output;
         
     }
@@ -65,7 +65,7 @@ public class converter{
                 output += current; 
             }
         }
-        System.out.println(output);
+        //System.out.println(output);
         return output;
     }
 

@@ -17,17 +17,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        logger.info("** Starting Maze Runner");
+        //logger.info("** Starting Maze Runner");
         
         try{
             Configuration config = configure(args);
 
             if (config.PATH_SEQUENCE() == null){
-                logger.info("**** Computing path");
+                //logger.info("**** Computing path");
                 player thePlayer= new player(config.MAZE_FILE());
+                
             }else{
                 path_check thePath= new path_check();
-                boolean check = thePath.check(config.MAZE_FILE(), config.PATH_SEQUENCE());
+                thePath.check(config.MAZE_FILE(), config.PATH_SEQUENCE());
             }
         
 
@@ -38,7 +39,7 @@ public class Main {
             //e.printStackTrace();
         }
 
-        logger.info("** End of MazeRunner");
+        //logger.info("** End of MazeRunner");
     }
 
     private static Configuration configure(String[] args) throws ParseException{
@@ -51,7 +52,7 @@ public class Main {
         CommandLine cmd = parser.parse(options, args);
 
         String MAZE_FILE = cmd.getOptionValue("i");
-        logger.info("**** Reading the maze from file " + MAZE_FILE);
+        //logger.info("**** Reading the maze from file " + MAZE_FILE);
 
         String PATH_SEQUENCE = cmd.getOptionValue("p");
 

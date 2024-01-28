@@ -68,7 +68,11 @@ public class player{
         }
         //System.out.println(output);
 
-        converter convert = new converter(output,"fac"); 
+        converter convert = new converter( ); 
+        String converted = convert.fac(output); 
+        
+        System.out.println(converted);
+
 
     }
 } 

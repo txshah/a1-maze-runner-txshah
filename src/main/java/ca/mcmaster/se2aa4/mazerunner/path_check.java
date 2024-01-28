@@ -11,7 +11,7 @@ public class path_check{
     public int[] current_point;
     public String direction; 
 
-    public boolean check(String MAZE_FILE, String input) throws IOException{
+    public void check(String MAZE_FILE, String input) throws IOException{
         boolean valid = true; 
         String maze = MAZE_FILE; 
         Maze current = new Maze(maze);
@@ -21,8 +21,7 @@ public class path_check{
         path = current.array;//use to access variables from other class 
         direction = "east"; 
 
-        
-        converter convert = new converter(input,"can"); 
+        converter convert = new converter( ); 
         String converted = convert.can(input); 
 
         for (int i=0; i < converted.length(); i++){
@@ -71,9 +70,13 @@ public class path_check{
             } else {
                 valid = true; 
             }
-    
-            System.out.println(valid);
-            return valid; 
+
+            if(valid ==true){
+                System.out.println("correct path");
+            }else{
+                System.out.println("incorrect path");
+            }
+            
     }
         
 }
