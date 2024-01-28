@@ -5,7 +5,7 @@ import java.util.Arrays;
  
 
 
-public class south{
+public class south implements compass{
 
     String direction = "south"; 
     String output =""; 
@@ -13,7 +13,7 @@ public class south{
 
    
 
-    public south(int[][] path, int[]current_point, int[] end_point) throws IOException{   
+    public void move(int[][] path, int[]current_point, int[] end_point) throws IOException{   
 
         this.current = current_point; 
 

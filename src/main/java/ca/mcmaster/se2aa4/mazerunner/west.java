@@ -3,12 +3,12 @@ package ca.mcmaster.se2aa4.mazerunner;
 import java.io.IOException;
 
 
-public class west{
+public class west implements compass{
     String direction = "west"; 
     String output =""; 
     int[] current; 
 
-    public west(int[][] path, int[]current_point, int[] end_point) throws IOException{   
+    public void move(int[][] path, int[]current_point, int[] end_point) throws IOException{   
 
         this.current = current_point; 
 

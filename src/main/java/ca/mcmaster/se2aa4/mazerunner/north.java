@@ -5,7 +5,7 @@ import java.util.Arrays;
  
 
 
-public class north{
+public class north implements compass{
 //need to confirm that tag is -i 
     
 
@@ -15,7 +15,7 @@ public class north{
 
    
 
-    public north(int[][] path, int[]current_point, int[] end_point) throws IOException{   
+    public void move(int[][] path, int[]current_point, int[] end_point) throws IOException{   
 
         this.current = current_point; 
 

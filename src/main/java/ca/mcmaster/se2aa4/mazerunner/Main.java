@@ -24,7 +24,12 @@ public class Main {
 
             if (config.PATH_SEQUENCE() == null){
                 //logger.info("**** Computing path");
-                player thePlayer= new player(config.MAZE_FILE());
+                right_hand solver= new right_hand();
+                
+                solver.setup(config.MAZE_FILE());
+                solver.solve();
+                solver.display();
+
                 
             }else{
                 path_check thePath= new path_check();
