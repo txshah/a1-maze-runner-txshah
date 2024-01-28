@@ -1,8 +1,6 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
 
-
-
 public class converter{
 //need to confirm that tag is -i 
 //A canonical path contains only F, R and L symbols
