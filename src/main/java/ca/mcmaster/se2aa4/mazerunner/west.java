@@ -3,7 +3,8 @@ package ca.mcmaster.se2aa4.mazerunner;
 import java.io.IOException;
 
 
-public class west implements compass{
+public class west implements compass{//implement class 
+    //standard global variables 
     String direction = "west"; 
     String output =""; 
     int[] current; 
@@ -12,8 +13,9 @@ public class west implements compass{
 
         this.current = current_point; 
 
-        while(((current_point[0]!=end_point[0])|| (current_point[1]!=end_point[1])) && (direction.equals("west"))){
-  
+        //while east is still the direction and current point is not the end point run the loop 
+        while(((current[0]!=end_point[0])|| (current[1]!=end_point[1])) && (direction.equals("west"))){
+  //run checks in each direction to make sure it is possible to move there  
             if(((path[(current[0])-1][(current[1])])== 0)){
                 right();
                 
@@ -30,7 +32,7 @@ public class west implements compass{
     }
 
     public void right(){
-        //goes right ("south direction") - need to add RF)
+        //goes right ("north direction") - need to add RF)
         int temp = current[0]; 
         current[0] = temp - 1;//current point = updated 
     
@@ -47,7 +49,7 @@ public class west implements compass{
     }
 
     public void left(){
-        //goes left ("north direction") - need to add LF)
+        //goes left ("south direction") - need to add LF)
         int temp = current[0]; 
         current[0] = temp + 1;//current point = updated 
         
@@ -61,7 +63,7 @@ public class west implements compass{
         
     }
 
-
+//return needed variables 
     public String output(){
         return output; 
     }
