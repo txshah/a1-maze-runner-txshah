@@ -10,7 +10,7 @@ import org.apache.commons.cli.ParseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-//version with all needed libraries for log 
+
 public class Main {
 
     private static final Logger logger = LogManager.getLogger();
@@ -18,11 +18,10 @@ public class Main {
     public static void main(String[] args) {
 
         //logger.info("** Starting Maze Runner");
-        
         try{
             Configuration config = configure(args);
 
-            if (config.PATH_SEQUENCE() == null){
+            if (config.PATH_SEQUENCE() == null){//if not path submission find path for user 
                 //logger.info("**** Computing path");
                 right_hand solver= new right_hand();
                 
@@ -30,15 +29,14 @@ public class Main {
                 solver.solve();
                 solver.display();
                 
-            }else{
+            }else{//check path if path_sqeuence exisists 
                 path_check thePath= new path_check();
                 thePath.check(config.MAZE_FILE(), config.PATH_SEQUENCE());
             }
         
-        }catch(Exception e) {
+        }catch(Exception e) {//error message
             logger.error("/!\\ An error has occured /!\\");
             logger.error("PATH NOT COMPUTED");
-            //logger.error("Please input a valid tag (-i) to run program. Remember to also use tag -p if you would like to test your own path");
             //e.printStackTrace();
         }
 

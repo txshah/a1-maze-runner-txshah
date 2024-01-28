@@ -4,30 +4,32 @@ package ca.mcmaster.se2aa4.mazerunner;
 import java.io.IOException;
 
 public class path_check{
-
-    private int[][] path;//use to access variables from other class 
+//global variable intialization 
+    private int[][] path;
     private int[] end_point;
 
     public int[] current_point;
     public String direction; 
 
     public void check(String MAZE_FILE, String input) throws IOException{
+        //setup variables to get essential info 
         boolean valid = true; 
         String maze = MAZE_FILE; 
         Maze current = new Maze(maze);
 
         current_point = current.start;
         end_point = current.end;
-        path = current.array;//use to access variables from other class 
+        path = current.array;
         direction = "east"; 
 
-        converter convert = new converter( ); 
+        converter convert = new converter( ); //convert string into can format 
         String converted = convert.can(input); 
 
-        for (int i=0; i < converted.length(); i++){
-            char choice = (converted.charAt(i)); 
+        for (int i=0; i < converted.length(); i++){//loop throguh length of converted string 
+            char choice = (converted.charAt(i)); //index each letter 
 
-            if(choice == 'F'){
+            if(choice == 'F'){//only move at F commands based on direction 
+                ///moving F means different things based on the direction(which row and col is changed)
                 if (direction.equals("east") && path[current_point[0]][current_point[1] + 1] == 0) {
                     current_point[1] += 1;
                 } else if (direction.equals("west") && path[current_point[0]][current_point[1] - 1] == 0) {
@@ -40,7 +42,7 @@ public class path_check{
                     valid = false;
                     break;
                 }
-            }else if(choice =='L'){
+            }else if(choice =='L'){ //left and right commands change your direction, does not change current_point 
                 if (direction.equals("east")) {
                     direction = "north";
                 } else if (direction.equals("west")) {
@@ -64,14 +66,14 @@ public class path_check{
                 valid = false;
                 break; 
             }
-        }
+        }//final check to make sure once string is over we are at the exit point 
             if ((current_point[0] != end_point[0]) || (current_point[1] != end_point[1])){
                 valid = false; 
             } else {
                 valid = true; 
             }
 
-            if(valid ==true){
+            if(valid ==true){//output based on check 
                 System.out.println("correct path");
             }else{
                 System.out.println("incorrect path");
